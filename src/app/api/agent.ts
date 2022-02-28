@@ -5,6 +5,7 @@ import { customHistory } from "../..";
 const sleep = () => new Promise(res => setTimeout(res, 500));
 
 axios.defaults.baseURL = 'http://localhost:5123/api/';
+axios.defaults.withCredentials = true;
 
 const responseBody = (response: AxiosResponse) => response.data;
 
@@ -64,9 +65,16 @@ const TestErrors = {
     getValidationError: ()=> requests.get('buggy/validation-error'),
 }
 
+const Basket = {
+    get: ()=> requests.get('basket'),
+    addItem: (productId: number, quantity = 1) => requests.post(`basket?productId=${productId}&quantity=${quantity}`, {}),
+    removeItem: (productId: number, quantity = 1) => requests.delete(`basket?productId=${productId}&quantity=${quantity}`),
+}
+
 const agent = {
     Catalog,
-    TestErrors
+    TestErrors,
+    Basket
 }
 
 export default agent;
