@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { Switch, List, ListItem, IconButton, Badge, Box } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 import { ShoppingCart } from '@mui/icons-material';
-import { useStoreContext } from '../context/StoreContext';
+import { useAppSelector } from '../store/configureStore';
 
 interface Props{
   themeSelectorHandler: ()=> void;
@@ -25,7 +25,7 @@ const navStyles = {color: 'inherit', textDecoration: 'none', typography: 'h6', '
 
 export default function Header({themeSelectorHandler, darkMode}: Props) {
 
-  const {basket} = useStoreContext();
+  const {basket} = useAppSelector(state => state.basket);
 
   const itemCount = basket?.items.reduce((sum, item)=>{
     return sum + item.quantity;
