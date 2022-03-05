@@ -15,7 +15,6 @@ axios.interceptors.request.use((config) => {
     const token = store.getState().account.user?.token;
     
     if(token){
-        console.log(config);
         config.headers!.Authorization = `Bearer ${token}`;
     }
     return config;
@@ -96,11 +95,18 @@ const Account = {
     currentUser: () => requests.get('account/currentUser'),
 }
 
+const Orders = {
+    list: ()=> requests.get('orders'),
+    fetch: (id: number)=> requests.get(`orders/${id}`),
+    create: (values: any)=> requests.post('orders', values)
+}
+
 const agent = {
     Catalog,
     TestErrors,
     Basket,
-    Account
+    Account,
+    Orders
 }
 
 export default agent;
