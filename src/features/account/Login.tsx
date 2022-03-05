@@ -6,7 +6,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Paper } from '@mui/material';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { FieldValues, useForm } from 'react-hook-form';
 import { LoadingButton } from '@mui/lab';
 import { useAppDispatch } from '../../app/store/configureStore';
@@ -15,14 +15,20 @@ import { signInUser } from './accountSlice';
 
 export default function Login() {
   const history = useHistory();
+  const location = useLocation<any>();
   const dispatch = useAppDispatch();
   const {register, handleSubmit, formState: {isSubmitting, errors, isValid}} = useForm({
     mode:'all'
   });
 
   const submitForm = async (data: FieldValues) =>{
-    await dispatch(signInUser(data));
-    history.push('/catalog')
+    try{
+      await dispatch(signInUser(data));
+      history.push(location.state?.from?.pathname || '/catalog');
+    }catch(error){
+      console.log(error);
+      
+    }
   }
 
   return (
