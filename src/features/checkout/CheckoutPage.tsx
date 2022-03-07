@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stepper from '@mui/material/Stepper';
@@ -44,6 +44,15 @@ export default function CheckoutPage() {
     mode: 'all',
     resolver: yupResolver(currentValidationSchema)
   });
+
+  useEffect(()=>{
+    agent.Account.fetchAddress()
+      .then((response)=>{
+        if(response){
+          methods.reset({...methods.getValues(), ...response, saveAddress: false})
+        }
+      })
+  }, [methods])
 
   const handleNext = async (data: FieldValues) => {
     const {nameOnCard, saveAddress, ...shippingAddress} = data;

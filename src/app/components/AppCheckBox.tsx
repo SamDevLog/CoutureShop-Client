@@ -4,11 +4,12 @@ import {useController, UseControllerProps } from 'react-hook-form'
 
 interface Props extends UseControllerProps{
     label: string;
+    disabled: boolean
 }
 
 export default function AppCheckBox(props: Props) {
     const {field} = useController({...props, defaultValue: false})
   return (
-    <FormControlLabel label={props.label} control={<Checkbox {...field} checked={field.value} color='secondary' />} />
+    <FormControlLabel disabled={props.disabled} label={props.label} control={<Checkbox {...field} checked={field.value} color='secondary' />} />
   )
 }
