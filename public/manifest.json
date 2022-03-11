@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SDL-Store",
+  "name": "Your new favorite source of fashion clothing",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +8,27 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icon192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "icon32.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "icon16.png",
       "type": "image/png",
       "sizes": "512x512"
     }

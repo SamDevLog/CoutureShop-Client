@@ -5,8 +5,8 @@ import { setProductParams } from './catalogSlice';
 
 export default function ProductSearch() {
     const { productParams} = useAppSelector(state => state.catalog);
-    const dispatch = useAppDispatch();
     const [searchTerm, setSearchTerm] = useState(productParams.searchTerm);
+    const dispatch = useAppDispatch();
 
     const debouncedSearch = debounce((event: any)=>{
         dispatch(setProductParams({searchTerm: event.target.value}))

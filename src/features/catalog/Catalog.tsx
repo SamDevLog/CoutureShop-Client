@@ -1,11 +1,11 @@
 import { Grid, Paper } from '@mui/material';
-import { useEffect } from 'react'
 import AppPagination from '../../app/components/AppPagination';
 import CheckboxButtons from '../../app/components/CheckboxButtons';
 import RadioButtonGroup from '../../app/components/RadioButtonGroup';
+import useProducts from '../../app/hooks/useProducts';
 import LoadingComponent from '../../app/layout/LoadingComponent';
 import { useAppDispatch, useAppSelector } from '../../app/store/configureStore';
-import { fetchFiltersAsync, fetchProductsAsync, productSelectors, setPageNumber, setProductParams } from './catalogSlice';
+import { setPageNumber, setProductParams } from './catalogSlice';
 import ProductList from './ProductList';
 import ProductSearch from './ProductSearch';
 
@@ -16,24 +16,15 @@ const sortOptions = [
 ]
 
 export default function Catalog() {
-  const {productsLoaded, filtersLoaded, brands, types, productParams, metaData} = useAppSelector(state => state.catalog)
-  const products = useAppSelector(productSelectors.selectAll);
+  const {products, brands, types, filtersLoaded, metaData} = useProducts();
+  const {productParams} = useAppSelector(state => state.catalog)
   const dispatch = useAppDispatch();
-
-  useEffect(()=>{
-    if(!productsLoaded) dispatch(fetchProductsAsync());
-  }, [dispatch, productsLoaded])
-
-  useEffect(()=>{
-    if(!filtersLoaded) dispatch(fetchFiltersAsync());
-
-  },[dispatch, filtersLoaded])
 
   if(!filtersLoaded) return <LoadingComponent message='Loading products...'/>
 
   return (
       <Grid container columnSpacing={4}>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <Paper sx={{mb: 2}}>
             <ProductSearch />
           </Paper>
@@ -62,11 +53,11 @@ export default function Catalog() {
           </Paper>
 
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={12} md={9}>
           <ProductList products={products} />
         </Grid>
         <Grid item xs={3}></Grid>
-        <Grid item xs={9} sx={{mb: 2}}>
+        <Grid item xs={9} sx={{mb: 2, mt: 2}}>
           {metaData && <AppPagination metaData={metaData} onPageChange={(page: number)=> dispatch(setPageNumber({pageNumber: page}))} />}
         </Grid>
       </Grid>

@@ -1,3 +1,4 @@
+import { AccountBox, Logout, ShoppingBag } from '@mui/icons-material';
 import { Button, Menu, Fade, MenuItem } from '@mui/material';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -33,12 +34,21 @@ export default function SignedInMenu() {
           onClose={handleClose}
           TransitionComponent={Fade}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem component={Link} to='/orders'>My Orders</MenuItem>
+          <MenuItem onClick={handleClose}>
+            <AccountBox sx={{mr: 1}} />
+            Profile
+          </MenuItem>
+          <MenuItem component={Link} to='/orders'>
+            <ShoppingBag sx={{mr: 1}} />
+            My Orders
+          </MenuItem>
           <MenuItem onClick={()=> {
             dispatch(signOut());
             dispatch(clearBasket());
-          }}>Logout</MenuItem>
+          }}>
+            <Logout sx={{mr: 1}} fontSize='small' />
+            Logout
+          </MenuItem>
         </Menu>
       </>
     );

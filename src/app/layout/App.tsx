@@ -23,6 +23,8 @@ import { fetchCurrentUser } from '../../features/account/accountSlice';
 import PrivateRoute from './PrivateRoute';
 import Orders from '../../features/orders/Orders';
 import CheckoutWrapper from '../../features/checkout/CheckoutWrapper';
+import Inventory from '../../features/admin/Inventory';
+import { indigo, teal } from '@mui/material/colors';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -48,6 +50,8 @@ function App() {
 
   const theme = createTheme({
     palette: {
+      primary: teal,
+      secondary: indigo,
       mode: paletteType,
       background: {
         default: paletteType === 'light' ? '#eaeaea' : '#121212'
@@ -68,9 +72,10 @@ function App() {
       <ToastContainer position='bottom-right' hideProgressBar theme='colored'/>
       <CssBaseline/>
       <Header darkMode={darkMode} themeSelectorHandler={setThemeHandler}/>
-      <Container>
+      <Route path='/' component={HomePage} exact/>
+      <Route path={'/(.+)'} render={()=> (
+        <Container sx={{mt: 4}}>
           <Switch>
-            <Route path='/' component={HomePage} exact/>
             <Route path='/catalog' component={Catalog} exact/>
             <Route path='/catalog/:id' component={ProductDetails}/>
             <Route path='/about' component={AboutPage}/>
@@ -79,11 +84,14 @@ function App() {
             <Route path='/basket' component={BasketPage}/>
             <PrivateRoute path='/checkout' component={CheckoutWrapper}/>
             <PrivateRoute path='/orders' component={Orders}/>
+            <PrivateRoute path='/inventory' roles={['Admin']} component={Inventory}/>
             <Route path='/login' component={Login}/>
             <Route path='/register' component={Register}/>
             <Route component={NotFound}/>
           </Switch>
       </Container>
+      )} />
+      
     </ThemeProvider>
   );
 }
