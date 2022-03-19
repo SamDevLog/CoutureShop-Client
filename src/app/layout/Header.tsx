@@ -63,6 +63,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 const midLinks = [
   {title: 'catalog', path: '/catalog'},
   {title: 'about', path: '/about'},
+  {title: 'errors', path: '/errors'},
   {title: 'contact', path: '/contact'},
 ]
 const rightLinks = [

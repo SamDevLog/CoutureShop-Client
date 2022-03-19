@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Product } from '../../app/models/product';
-import { Avatar, CardHeader, colors } from '@mui/material';
+import { Avatar, CardHeader } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { LoadingButton } from '@mui/lab';
 import { currencyFormat } from '../../app/util/util';
@@ -22,7 +22,7 @@ export default function ProductCard({product} : Props) {
   const dispatch = useAppDispatch();
 
   return (
-    <Card>
+    <Card sx={{maxWidth: 350}}>
       <CardHeader titleTypographyProps={{ sx: { fontWeight: 'bold', color: 'primary.main' } }} avatar={ <Avatar sx={{bgcolor: indigo[300], width: 32, height: 32}} >{product.name.charAt(0).toUpperCase()}</Avatar> } title={product.name}/>
       <CardMedia
         component="img"
