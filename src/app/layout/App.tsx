@@ -25,6 +25,7 @@ import Orders from '../../features/orders/Orders';
 import CheckoutWrapper from '../../features/checkout/CheckoutWrapper';
 import Inventory from '../../features/admin/Inventory';
 import { indigo, teal } from '@mui/material/colors';
+import ErrorsPage from '../../features/about/ErrorsPage';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -79,6 +80,7 @@ function App() {
             <Route path='/catalog' component={Catalog} exact/>
             <Route path='/catalog/:id' component={ProductDetails}/>
             <Route path='/about' component={AboutPage}/>
+            <Route path='/errors' component={ErrorsPage}/>
             <Route path='/contact' component={ContactPage}/>
             <Route path='/server-error' component={ServerError}/>
             <Route path='/basket' component={BasketPage}/>
