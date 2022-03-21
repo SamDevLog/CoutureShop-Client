@@ -12,7 +12,7 @@ export default function FeaturedCategories() {
                     <Typography variant="overline" display="block">
                     Fashion Collections
                     </Typography>
-                    <Typography variant='h2'>
+                    <Typography variant='h3'>
                         Featured Categories
                     </Typography>
                 </Box>

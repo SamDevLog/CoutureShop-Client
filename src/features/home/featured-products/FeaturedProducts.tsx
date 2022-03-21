@@ -15,14 +15,15 @@ export const FeaturedProducts = () => {
                 <Typography variant="overline" display="block" color='white'>
                 Fashion Collections
                 </Typography>
-                <Typography variant='h2' color='white'>
+                <Typography variant='h3' color='white'>
                     Featured Products
                 </Typography>
             </Box>
         </Grid>
         <Grid
         item
-        xs={9}
+        xs={12}
+        md={9}
         sx={{
             margin: '2rem 0 2rem 0',
             height: '450px'

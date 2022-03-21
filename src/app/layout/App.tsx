@@ -60,6 +60,26 @@ function App() {
     }
   });
 
+  theme.typography.h3 = {
+    fontSize: '1.7rem',
+    '@media (min-width:600px)': {
+      fontSize: '2rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '2.4rem',
+    },
+  };
+
+  theme.typography.h1 = {
+    fontSize: '3rem',
+    '@media (min-width:600px)': {
+      fontSize: '4.5rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '6rem',
+    },
+  };
+
   const setThemeHandler = ()=>{
     setDarkMode((prevState)=>
       !prevState

@@ -32,14 +32,13 @@ export const FeaturedProductsSlider = ({products}: Props) => {
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
-                initialSlide: 2
               }
             },
             {
               breakpoint: 480,
               settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1
+                slidesToScroll: 1,
               }
             }
           ]
