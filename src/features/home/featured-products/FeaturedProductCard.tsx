@@ -27,7 +27,7 @@ const FeaturedProductCard = ({ product }: Props) => {
   const dispatch = useAppDispatch();
 
   return (
-    <Card sx={{ maxWidth: 270 }}>
+    <Card sx={{ maxWidth: 270, margin: '0 0.4rem' }}>
       <CardActionArea>
         <CardMedia
           component="img"

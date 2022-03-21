@@ -31,7 +31,7 @@ export default function HomePage() {
       </Slider>
 
       <Box display='flex' justifyContent='center' sx={{p: 4}}>
-        <Typography variant='h1'>
+        <Typography textAlign='center' variant='h1'>
           Welcome to SDL-Store!
         </Typography>
       </Box>
