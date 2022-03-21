@@ -51,14 +51,14 @@ export default function ProductDetails() {
   if(!product) return <NotFound/>
 
   return (
-    <Grid container spacing={6}>
-      <Grid item xs={6}>
+    <Grid container flexDirection={{xs: 'column', md: 'row'}} mb={2} spacing={6}>
+      <Grid item sx={{margin: {xs: 'auto', md: 'unset'}}} xs={9} md={6}>
         <img src={product.pictureUrl} alt={product.name} style={{width: '100%'}} />
       </Grid>
-      <Grid item xs={6}>
-        <Typography variant='h3'>{product.name}</Typography>
+      <Grid item xs={12} md={6}>
+        <Typography textAlign={{xs: 'center', md: 'left'}} variant='h3'>{product.name}</Typography>
         <Divider sx={{mb:2}}></Divider>
-        <Typography variant='h3' color='secondary'>{currencyFormat(product.price)}</Typography>
+        <Typography variant='h3' textAlign={{xs: 'center', md: 'left'}} color='secondary'>{currencyFormat(product.price)}</Typography>
         <TableContainer>
           <Table>
             <TableBody>

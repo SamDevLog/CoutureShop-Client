@@ -45,21 +45,21 @@ const FeaturedProductCard = ({ product }: Props) => {
             {product.brand} / {product.type}
           </Typography>
         </CardContent>
-        <CardActions sx={{ p: 1 }}>
-          <LoadingButton
-            loading={status.includes("pendingAddItem" + product.id)}
-            onClick={() =>
-              dispatch(addBasketItemAsync({ productId: product.id }))
-            }
-            size="small"
-          >
-            Add to cart
-          </LoadingButton>
-          <Button component={Link} to={`/catalog/${product.id}`} size="small">
-            View
-          </Button>
-        </CardActions>
       </CardActionArea>
+      <CardActions sx={{ p: 1 }}>
+        <LoadingButton
+          loading={status.includes("pendingAddItem" + product.id)}
+          onClick={() =>
+            dispatch(addBasketItemAsync({ productId: product.id }))
+          }
+          size="small"
+        >
+          Add to cart
+        </LoadingButton>
+        <Button component={Link} to={`/catalog/${product.id}`} size="small">
+          View
+        </Button>
+      </CardActions>
     </Card>
   );
 };

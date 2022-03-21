@@ -11,11 +11,12 @@ export default function BasketPage() {
   return (
     <>
       <BasketTable items={basket.items} />
-      <Grid container>
-        <Grid item xs={6}/>
-        <Grid item xs={6}>
+      <Grid mb={3} container>
+        <Grid item md={6} display={{xs: 'none', md: 'block'}} />
+        <Grid item xs={12} md={6}>
           <BasketSummary/>
           <Button
+            sx={{marginTop: 2}}
             component={Link}
             to='/checkout'
             variant='contained'
