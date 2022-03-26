@@ -16,7 +16,7 @@ export default function BasketSummary({subtotal}:Props) {
 
   return (
     <>
-        <TableContainer component={Paper} variant={'outlined'}>
+        <TableContainer  component={Paper} variant={'outlined'}>
             <Table>
                 <TableBody>
                     <TableRow>

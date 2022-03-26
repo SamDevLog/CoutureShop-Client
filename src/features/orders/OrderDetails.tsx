@@ -17,13 +17,13 @@ export default function OrderDetails({order, setSelectedOrder}: Props) {
   return (
     <>
         <Box display='flex' justifyContent='space-between'>
-            <Typography sx={{ p: 2 }} gutterBottom variant='h4'>Order# {order.id} - {order.orderStatus}</Typography>
-            <Button onClick={() => setSelectedOrder(0)} sx={{ m: 2 }} size='large' variant='contained'>Back to orders</Button>
+            <Typography sx={{ p: 2, m: 0 }} gutterBottom variant='h4'>Order# {order.id} - {order.orderStatus}</Typography>
+            <Button onClick={() => setSelectedOrder(0)} sx={{ m: 2}} size='large' variant='contained'>Back to orders</Button>
         </Box>
         <BasketTable items={order.orderItems as BasketItem[]} isBasket={false} />
         <Grid container>
-            <Grid item xs={6} />
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}/>
+            <Grid item xs={12} md={6}>
                 <BasketSummary subtotal={subtotal} />
             </Grid>
         </Grid>

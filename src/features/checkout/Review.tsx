@@ -18,8 +18,8 @@ export default function Review() {
       </Typography>
       {basket && <BasketTable items={basket.items} isBasket={false}/>}
       <Grid container>
-        <Grid item xs={6}/>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}/>
+        <Grid item xs={12} md={6}>
           <BasketSummary/>
         </Grid>
       </Grid>

@@ -24,7 +24,7 @@ import PrivateRoute from './PrivateRoute';
 import Orders from '../../features/orders/Orders';
 import CheckoutWrapper from '../../features/checkout/CheckoutWrapper';
 import Inventory from '../../features/admin/Inventory';
-import { indigo, teal } from '@mui/material/colors';
+import { teal } from '@mui/material/colors';
 import ErrorsPage from '../../features/about/ErrorsPage';
 
 function App() {
@@ -52,13 +52,13 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: teal,
-      secondary: indigo,
       mode: paletteType,
       background: {
         default: paletteType === 'light' ? '#eaeaea' : '#121212'
       }
+    }   
     }
-  });
+  );
 
   theme.typography.h3 = {
     fontSize: '1.7rem',
@@ -67,6 +67,16 @@ function App() {
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '2.4rem',
+    },
+  };
+
+  theme.typography.h4 = {
+    fontSize: '2.125rem',
+    '@media (max-width:600px)': {
+      fontSize: '1.5rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '2.125rem',
     },
   };
 

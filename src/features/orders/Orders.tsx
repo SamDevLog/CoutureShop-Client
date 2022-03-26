@@ -29,7 +29,7 @@ export default function Orders() {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ md:{minWidth: 650} }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Order number</TableCell>
