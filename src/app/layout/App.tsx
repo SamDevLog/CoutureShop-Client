@@ -24,7 +24,6 @@ import PrivateRoute from './PrivateRoute';
 import Orders from '../../features/orders/Orders';
 import CheckoutWrapper from '../../features/checkout/CheckoutWrapper';
 import Inventory from '../../features/admin/Inventory';
-import { teal } from '@mui/material/colors';
 import ErrorsPage from '../../features/about/ErrorsPage';
 
 function App() {
@@ -51,12 +50,22 @@ function App() {
 
   const theme = createTheme({
     palette: {
-      primary: teal,
+      primary: {
+        main: '#e3d5ca',
+        light: '#f5ebe0',
+        dark:'#d5bdaf',
+        contrastText: '#121212'
+      },
+      secondary:{
+        dark: '#3f4238',
+        main:'#6b705c',
+        light:'#a5a58d'
+      },
       mode: paletteType,
       background: {
-        default: paletteType === 'light' ? '#eaeaea' : '#121212'
+        default: paletteType === 'light' ? '#f5ebe0' : '#3f4238'
       }
-    }   
+    }
     }
   );
 

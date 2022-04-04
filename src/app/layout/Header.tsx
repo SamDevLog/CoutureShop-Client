@@ -131,11 +131,11 @@ export default function Header({ themeSelectorHandler, darkMode }: Props) {
       >
         <Box display="flex" alignItems="center">
           <Typography
-            variant="h5"
+            variant="h4"
             component={NavLink}
             to="/"
             exact
-            sx={navStyles}
+            sx={{...navStyles, fontFamily:'La Belle Aurore', fontWeight: 400, marginTop: '5px'}}
           >
             SDL-Store
           </Typography>

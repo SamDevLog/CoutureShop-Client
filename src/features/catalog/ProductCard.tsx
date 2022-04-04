@@ -11,7 +11,6 @@ import { LoadingButton } from '@mui/lab';
 import { currencyFormat } from '../../app/util/util';
 import { useAppDispatch, useAppSelector } from '../../app/store/configureStore';
 import { addBasketItemAsync } from '../basket/basketSlice';
-import { indigo } from '@mui/material/colors';
 
 interface Props{
     product: Product
@@ -23,7 +22,7 @@ export default function ProductCard({product} : Props) {
 
   return (
     <Card sx={{maxWidth: 350}}>
-      <CardHeader titleTypographyProps={{ sx: { fontWeight: 'bold', color: 'primary.main' } }} avatar={ <Avatar sx={{bgcolor: indigo[300], width: 32, height: 32}} >{product.name.charAt(0).toUpperCase()}</Avatar> } title={product.name}/>
+      <CardHeader titleTypographyProps={{ sx: { fontWeight: 'bold', color: 'contrastText' } }} avatar={ <Avatar sx={{bgcolor: 'primary.dark', width: 32, height: 32}} >{product.name.charAt(0).toUpperCase()}</Avatar> } title={product.name}/>
       <CardMedia
         component="img"
         height= '140'
@@ -33,7 +32,7 @@ export default function ProductCard({product} : Props) {
         title={product.name}
       />
       <CardContent>
-        <Typography gutterBottom color='secondary' variant="h5">
+        <Typography gutterBottom sx={{color:'text'}} variant="h5">
           {currencyFormat(product.price)}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -41,12 +40,20 @@ export default function ProductCard({product} : Props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <LoadingButton 
+        <LoadingButton
               loading={status.includes('pendingAddItem' + product.id)} 
               onClick={()=> dispatch(addBasketItemAsync({productId: product.id}))} 
-              size="small">Add to cart</LoadingButton>
+              size="small" sx={{color:'text'}}>
+                <Typography color='secondary' variant="button">
+                  Add to cart
+                </Typography>
+              </LoadingButton>
         
-        <Button component={Link} to={`/catalog/${product.id}`} size="small">View</Button>
+        <Button component={Link} to={`/catalog/${product.id}`} size="small">
+          <Typography color='secondary' variant="button">
+            View
+          </Typography>
+        </Button>
       </CardActions>
     </Card>
   )
